@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EmoGame | Santiago Clemente</title>
+  <meta name="description" content="EmoGame: an EEG study of how teenagers' brains respond while playing Fortnite and Minecraft. Published at LATAM-SHM 2023. Summary by Santiago Clemente.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css?v=58">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body data-page="research" data-root="../">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="paper-hero has-photo">
+      <div class="paper-hero-bg" style="background-image: url('../assets/img/research/emogame-hero.jpg'); background-position: center 30%;" aria-hidden="true"></div>
+      <div class="container narrow">
+        <a class="back" href="../research.html">← All research</a>
+
+        <span class="eyebrow">1st Latin-American Workshop on Structural Health Monitoring · LATAM-SHM 2023</span>
+        <h1>EmoGame: Unraveling Emotional Correlations in Teen Video Gamers</h1>
+        <p class="subtitle">Biomedical Analysis of the Emotional Impact of Fortnite and Minecraft</p>
+        <p class="meta authors">
+          <strong>Santiago Clemente</strong>, Andrew Sim, Paola Spoletini, Adriane B. Randolph, Maria Valero<br>
+          <span>Kennesaw State University · IoT as Service Research Group</span>
+        </p>
+
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://www.scipedia.com/public/Clemente_et_al_2024a" target="_blank" rel="noopener">
+            Read on Scipedia
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+          <a class="btn" href="#cite">Cite</a>
+        </div>
+      </div>
+    </section>
+
+    <article class="article article-after-hero">
+      <div class="container narrow">
+        <div class="stats">
+          <div class="stat"><span class="stat-num">15</span><span class="stat-label">teen gamers, ages 13–18</span></div>
+          <div class="stat"><span class="stat-num">2 × 20 min</span><span class="stat-label">of play per participant, one game each</span></div>
+          <div class="stat"><span class="stat-num">100%</span><span class="stat-label">showed activity in emotion &amp; decision regions (BA 10/11)</span></div>
+          <div class="stat"><span class="stat-num">2023</span><span class="stat-label">my first published research</span></div>
+        </div>
+
+        <div class="tldr">
+          <span class="eyebrow">TL;DR</span>
+          <p>We recorded teenagers' brain activity with an EEG cap while they played Fortnite and Minecraft, then mapped where in the brain that activity came from. Both games consistently lit up regions tied to decision-making and emotional regulation. Minecraft produced more varied patterns linked to creativity and exploration, and neither game showed strong signs of activity associated with negative emotions.</p>
+        </div>
+
+        <h2>The question</h2>
+        <p>Fortnite and Minecraft are two of the most popular games among teenagers, but they feel very different: one is a fast-paced battle royale, the other an open-ended building game. Parents, developers, and health professionals all wonder <strong>what these games actually do to how teens feel</strong>.</p>
+        <p>Plenty of research links games to emotions, but as far as we know, <strong>no one had used EEG to compare teens' brain responses to Fortnite and Minecraft specifically</strong>. That's what EmoGame set out to do.</p>
+
+        <h2>How the study worked</h2>
+        <div class="split">
+          <figure class="figure">
+            <div class="fig-frame photo"><img src="../assets/img/research/emogame-setup.jpg" alt="A teen participant, seen from behind, wearing an EEG cap with electrodes while playing Fortnite on a laptop" loading="lazy"></div>
+            <figcaption><strong>A data collection session</strong> in the KSU IoT as Service Research Lab.</figcaption>
+          </figure>
+          <div>
+            <ul class="facts">
+              <li><span>Design</span>Within-subjects: every participant played both games, so each person is compared with themselves.</li>
+              <li><span>Participants</span>15 teens (13–18) who game at least 3 hours a week. Sample size set by power analysis.</li>
+              <li><span>Equipment</span>BioSemi ActiveTwo EEG system, a non-invasive cap with electrodes.</li>
+              <li><span>Session</span>1 hour in a controlled lab, 20 minutes per game, with standardized settings.</li>
+              <li><span>Ethics</span>Approved by the KSU Institutional Review Board, with parental consent and teen assent.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>From brainwaves to brain maps</h3>
+        <ol class="steps">
+          <li><strong>Record</strong> EEG during gameplay, with timestamps marking the start and end of each game.</li>
+          <li><strong>Clean</strong> the signal: remove artifacts, filter, and downsample to a manageable size.</li>
+          <li><strong>Localize</strong> the activity with sLORETA software, which estimates where in the brain signals originate across frequency bands (delta, theta, alpha, beta, gamma).</li>
+          <li><strong>Map</strong> the results onto Brodmann areas, a standard numbering of brain regions, and compare the two games.</li>
+        </ol>
+
+        <div class="callout">
+          <h3>Reading the brain maps</h3>
+          <p>The images below are top-down views of the brain (front at the top). Brighter yellow means stronger activity. As a rough guide, <strong>left-side</strong> frontal activity is associated with positive emotions, and <strong>right-side</strong> activity with processing negative or threatening stimuli.</p>
+        </div>
+
+        <h2>What we found</h2>
+
+        <h3>Three players, three different patterns</h3>
+
+        <div class="brain-case">
+          <div class="brain-head">
+            <span class="case-id">FM-02</span>
+            <p><strong>Both hemispheres active in both games.</strong> Brodmann Area 11, an emotion-evaluation region, was active during both games. Activity on both sides suggests a blend of positive and negative emotions at the same time, with especially strong engagement during Fortnite.</p>
+          </div>
+          <div class="brain-pair">
+            <figure><div class="fig-frame"><img src="../assets/img/research/emogame-fm02-fortnite.jpg" alt="FM-02 brain map during Fortnite: broad activity across both hemispheres" loading="lazy"></div><figcaption>Fortnite</figcaption></figure>
+            <figure><div class="fig-frame"><img src="../assets/img/research/emogame-fm02-minecraft.jpg" alt="FM-02 brain map during Minecraft: broad activity across both hemispheres" loading="lazy"></div><figcaption>Minecraft</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="brain-case">
+          <div class="brain-head">
+            <span class="case-id">FM-11</span>
+            <p><strong>Each game lit up a different region.</strong> Fortnite activated Area 10 (front: strategy and decision-making). Minecraft activated Area 7 (back: spatial processing), which fits a game built around exploring and building.</p>
+          </div>
+          <div class="brain-pair">
+            <figure><div class="fig-frame"><img src="../assets/img/research/emogame-fm11-fortnite.jpg" alt="FM-11 brain map during Fortnite: activity concentrated at the front" loading="lazy"></div><figcaption>Fortnite</figcaption></figure>
+            <figure><div class="fig-frame"><img src="../assets/img/research/emogame-fm11-minecraft.jpg" alt="FM-11 brain map during Minecraft: activity concentrated toward the back" loading="lazy"></div><figcaption>Minecraft</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="brain-case">
+          <div class="brain-head">
+            <span class="case-id">FM-07</span>
+            <p><strong>The same pattern in both games.</strong> Area 11 and the same frontal region were active in both games, suggesting a stable, consistently immersive experience regardless of which game was played.</p>
+          </div>
+          <div class="brain-pair">
+            <figure><div class="fig-frame"><img src="../assets/img/research/emogame-fm07-fortnite.jpg" alt="FM-07 brain map during Fortnite: focused frontal activity" loading="lazy"></div><figcaption>Fortnite</figcaption></figure>
+            <figure><div class="fig-frame"><img src="../assets/img/research/emogame-fm07-minecraft.jpg" alt="FM-07 brain map during Minecraft: nearly identical focused frontal activity" loading="lazy"></div><figcaption>Minecraft</figcaption></figure>
+          </div>
+        </div>
+
+        <h3>Across all participants</h3>
+        <p>Looking at which Brodmann areas were active for participants during both games:</p>
+        <div class="bars" role="img" aria-label="Share of participants with activation: Areas 10 and 11, 100 percent; Areas 6, 7 and 8, 14 percent; Area 9, 0 percent">
+          <div class="bar-row">
+            <span class="bar-label">Areas 10 &amp; 11<small>Decision-making, emotional regulation</small></span>
+            <span class="bar-track"><span class="bar-fill" style="width: 100%"></span></span>
+            <span class="bar-val">100%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Areas 6, 7 &amp; 8<small>Motor control, visuospatial</small></span>
+            <span class="bar-track"><span class="bar-fill" style="width: 14.29%"></span></span>
+            <span class="bar-val">14%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Area 9<small>Sensory processing</small></span>
+            <span class="bar-track"><span class="bar-fill" style="width: 0%"></span></span>
+            <span class="bar-val">0%</span>
+          </div>
+        </div>
+
+        <div class="compare">
+          <div class="compare-card">
+            <span class="compare-tag">Fortnite</span>
+            <p>Consistent activity in the emotion and decision regions (Areas 10 and 11), suggesting engagement and excitement. No strong evidence of activity linked to negative emotions.</p>
+          </div>
+          <div class="compare-card">
+            <span class="compare-tag">Minecraft</span>
+            <p>The same core activity, plus more varied patterns, including toward the back of the brain. This may reflect positive emotions tied to creativity and exploration. No strong evidence of negative emotions.</p>
+          </div>
+        </div>
+
+        <h2>Why it matters</h2>
+        <p>EEG-based analysis could become a way to monitor young gamers' emotional well-being directly, not just by asking them. These results can help <strong>game developers</strong> design responsibly, give <strong>parents</strong> a clearer picture of what specific games do, and support <strong>health professionals</strong> working on interventions for young gamers.</p>
+
+        <h2>Limitations &amp; next steps</h2>
+        <p>Brain-region activity hints at emotion but doesn't measure it directly, and individual differences are large. Future work should add self-report questionnaires and other signals like heart rate variability, study specific in-game events, follow players over time, and include more games, age groups, and cultural backgrounds.</p>
+
+        <h2 id="cite">Cite this paper</h2>
+        <p class="meta" style="margin-bottom: 12px;">S. Clemente, A. Sim, P. Spoletini, A. B. Randolph, and M. Valero, "EmoGame: Unraveling Emotional Correlations in Teen Video Gamers for Health Monitoring Insights - Biomedical Analysis of the Emotional Impact of Fortnite and Minecraft," in <em>1st Latin-American Workshop on Structural Health Monitoring (LATAM-SHM 2023)</em>, Biomedical Applications, 2024. doi: <a href="https://doi.org/10.23967/latam.2023.004" target="_blank" rel="noopener">10.23967/latam.2023.004</a></p>
+        <div class="cite">@inproceedings{clemente2024emogame,
+  title     = {EmoGame: Unraveling Emotional Correlations in Teen Video Gamers for Health Monitoring Insights - Biomedical Analysis of the Emotional Impact of Fortnite and Minecraft},
+  author    = {Clemente, Santiago and Sim, Andrew and Spoletini, Paola and Randolph, Adriane B. and Valero, Maria},
+  booktitle = {1st Latin-American Workshop on Structural Health Monitoring (LATAM-SHM 2023)},
+  year      = {2024},
+  doi       = {10.23967/latam.2023.004}
+}</div>
+      </div>
+    </article>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/site.js?v=58"></script>
+</body>
+</html>

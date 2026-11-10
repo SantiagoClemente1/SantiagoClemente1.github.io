@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Materialización: Declaremos | Santiago Clemente</title>
+  <meta name="description" content="An AI-assisted automation system that takes Declaremos clients from first contact to invoice: document validation, quotes, contracts, onboarding and billing.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css?v=58">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body data-page="projects" data-root="../">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="paper-hero">
+      <div class="container narrow">
+        <a class="back" href="../projects.html">← All projects</a>
+        <span class="eyebrow">Wind Consulting · 2026</span>
+        <h1>Materialización: Declaremos</h1>
+        <p class="subtitle">AI-assisted automation from first contact to final invoice</p>
+        <p class="meta"><strong>Role:</strong> Technical Advisor / Development &nbsp;·&nbsp; <strong>Platform:</strong> ArcanFlows &nbsp;·&nbsp; <strong>Client:</strong> Declaremos</p>
+        <ul class="tags" style="justify-content:center;"><li class="tag">Workflow automation</li><li class="tag">AI agents</li><li class="tag">Document validation</li><li class="tag">Internal tools</li></ul>
+      </div>
+    </section>
+
+    <article class="article article-after-hero">
+      <div class="container narrow">
+
+        <div class="stats">
+          <div class="stat"><span class="stat-num">77</span><span class="stat-label">Declaremos subcompanies served by one system</span></div>
+          <div class="stat"><span class="stat-num">10</span><span class="stat-label">automated workflows across 3 phases</span></div>
+          <div class="stat"><span class="stat-num">3</span><span class="stat-label">AI agents: validation, quotes, contracts</span></div>
+          <div class="stat"><span class="stat-num">10</span><span class="stat-label">tracked checkpoints per client project</span></div>
+        </div>
+
+        <div class="tldr">
+          <span class="eyebrow">Overview</span>
+          <p>Declaremos is a group of 77 subcompanies that all onboard new business clients the same way: collect legal documents, write a quote, draft a contract, get approvals, and send an invoice. I built a system that automates that entire journey. AI agents validate the client's documents and generate quotes and contracts from the company's own templates, while people stay in control of every approval.</p>
+        </div>
+
+        <h2>The problem</h2>
+        <p>Every new client meant a long chain of manual steps spread across email threads. Staff had to collect and check Mexican legal and tax documents (articles of incorporation, the representative's official ID, the tax status certificate, and proof of address), write a quote, fill out a contract template by hand, chase approvals from both the internal team and the client, and finally issue the invoice.</p>
+        <p>With 77 subcompanies following the same process, small delays and missing documents added up, and nobody had a single place to see where each client stood.</p>
+
+        <h2>The solution</h2>
+        <p>The whole system lives inside Declaremos's workspace on <strong>ArcanFlows</strong>, an automation platform. It's built from three kinds of pieces:</p>
+        <div class="finding-grid">
+          <div class="finding">
+            <span class="finding-num">10</span>
+            <h3>Workflows</h3>
+            <p>Each step of the process is its own workflow that runs automatically when a form is submitted: saving data, checking conditions, calling AI agents, and sending emails.</p>
+          </div>
+          <div class="finding">
+            <span class="finding-num">10</span>
+            <h3>Forms</h3>
+            <p>Clients and staff move the process forward through simple forms, from the first client request to approving the final invoice.</p>
+          </div>
+          <div class="finding">
+            <span class="finding-num">2</span>
+            <h3>Data tables</h3>
+            <p>One table stores everything about each project (28 fields: client info, verified documents, quotes, contracts and invoices). The other tracks 10 progress checkpoints.</p>
+          </div>
+          <div class="finding">
+            <span class="finding-num">1</span>
+            <h3>Tracking app</h3>
+            <p>An internal app where staff register new clients, search every project's records, and see at a glance which step each project is on.</p>
+          </div>
+        </div>
+
+        <h2>How it flows</h2>
+        <p>The process runs in three phases. Phases 1 and 3 run step by step. Phase 2 splits into two paths that run at the same time, and invoicing starts only when both are done.</p>
+
+        <div class="flowmap" aria-label="Workflow map: three phases, ten workflows">
+          <div class="flow-phase">
+            <span class="flow-phase-title">Phase 1 · Quote</span>
+            <ol class="flow-steps">
+              <li><b>1</b>Intake</li>
+              <li><b>2</b>Validate docs &amp; draft quote</li>
+              <li><b>3</b>Internal quote approval</li>
+              <li><b>4</b>Client quote approval</li>
+            </ol>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">↓</div>
+          <div class="flow-phase">
+            <span class="flow-phase-title">Phase 2 · Contract &amp; onboarding, in parallel</span>
+            <div class="flow-parallel">
+              <div>
+                <span class="flow-lane">Contract</span>
+                <ol class="flow-steps">
+                  <li><b>5</b>Internal contract approval</li>
+                  <li><b>6</b>Client contract approval</li>
+                </ol>
+              </div>
+              <div>
+                <span class="flow-lane">Onboarding kit</span>
+                <ol class="flow-steps">
+                  <li><b>7</b>Client kit approval</li>
+                  <li><b>8</b>Internal onboarding confirmation</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">↓ <span>invoicing starts when both paths finish</span></div>
+          <div class="flow-phase">
+            <span class="flow-phase-title">Phase 3 · Invoicing</span>
+            <ol class="flow-steps">
+              <li><b>9</b>Send invoice</li>
+              <li><b>10</b>Client invoice approval</li>
+            </ol>
+          </div>
+        </div>
+
+        <h2>Where the AI comes in</h2>
+        <p>Three steps use AI agents, each handling work that used to take a person the most time:</p>
+        <div class="gap-grid">
+          <div class="gap-card"><span class="gap-label">Agent 1</span><h4>Document validation</h4><p>Checks the client's legal and tax documents. If anything fails, the client gets an email explaining exactly what to fix.</p></div>
+          <div class="gap-card"><span class="gap-label">Agent 2</span><h4>Quote generation</h4><p>Writes a scoped quote with a fee table in Mexican pesos from the client's request, then sends it to staff for review.</p></div>
+          <div class="gap-card"><span class="gap-label">Agent 3</span><h4>Contract drafting</h4><p>Fills the subcompany's contract template with the client's data and lists any fields a person still needs to complete.</p></div>
+        </div>
+
+        <figure class="figure wide">
+          <div class="fig-frame photo"><img src="../assets/img/projects/declaremos-workflow.jpg" alt="Workflow canvas in ArcanFlows: form trigger, data lookup and write, a document validation agent, a condition branch, a quote agent, and email notifications" loading="lazy"></div>
+          <figcaption><strong>Workflow 2 in ArcanFlows.</strong> A client's form submission is saved, the documents are checked by the validation agent, and then either the client is told what failed, or the progress is recorded and the quote agent drafts a quote for staff to review.</figcaption>
+        </figure>
+
+        <h2>Design decisions</h2>
+        <ul class="why">
+          <li><strong>People stay in control.</strong> Every quote, contract and invoice is approved twice: first by Declaremos staff, then by the client. If a client rejects something, their comments go straight back to staff with a link to upload a revised version.</li>
+          <li><strong>Secure sharing.</strong> Clients view quotes, contracts and invoices through password-protected, read-only links instead of attachments.</li>
+          <li><strong>Parallel approvals without duplicates.</strong> The contract and the onboarding kit can be approved in either order. Each path checks whether the other is already done, so the "ready to invoice" email is sent exactly once, by whichever finishes second.</li>
+          <li><strong>Smart forms.</strong> Returning clients who already have a tax file skip the document uploads. If a new client claims they have one, the system automatically rejects the request.</li>
+          <li><strong>Built to recover.</strong> Every step in every workflow has an error path, so a failure is handled instead of silently stopping a client's project.</li>
+        </ul>
+
+        <h2>Outcome</h2>
+        <p>The system takes each client from first contact to a paid invoice with one shared record and one ID, the Project ID, tying every step together. Staff can see exactly where every project stands in the tracking app instead of digging through email threads, and the slowest manual tasks (checking documents, writing quotes, and drafting contracts) are now handled by AI agents and reviewed by people. At the end, finance automatically receives one secure link with the final quote, signed contract and invoice.</p>
+
+      </div>
+    </article>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/site.js?v=58"></script>
+</body>
+</html>

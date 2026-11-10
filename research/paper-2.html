@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweating the Stress | Santiago Clemente</title>
+  <meta name="description" content="Sweating the Stress: GSR Insights into Cognitive Load and Distraction. Published at ICCV Workshops 2025. A plain-language summary by Santiago Clemente.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css?v=58">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body data-page="research" data-root="../">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="paper-hero has-photo">
+      <div class="paper-hero-bg" style="background-image: url('../assets/img/research/gsr-hero.jpg'); background-position: center 40%;" aria-hidden="true"></div>
+      <div class="container narrow">
+        <a class="back" href="../research.html">← All research</a>
+
+        <span class="eyebrow">IEEE/CVF ICCV Workshops 2025 · Honolulu, HI</span>
+        <h1>Sweating the Stress: GSR Insights into Cognitive Load and Distraction</h1>
+        <p class="meta authors">
+          <strong>Santiago Clemente</strong>, Layla Varghese, Valentina Nino, Maria Valero<br>
+          <span>Kennesaw State University · IoT Research Group</span>
+        </p>
+
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://ieeexplore.ieee.org/document/11374558" target="_blank" rel="noopener">
+            Read on IEEE Xplore
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+          <a class="btn" href="#cite">Cite</a>
+        </div>
+      </div>
+    </section>
+
+    <article class="article article-after-hero">
+      <div class="container narrow">
+        <div class="stats">
+          <div class="stat"><span class="stat-num">91.3%</span><span class="stat-label">accuracy classifying stress vs. rest</span></div>
+          <div class="stat"><span class="stat-num">p = 0.0023</span><span class="stat-label">GSR jump when an alarm interrupted math</span></div>
+          <div class="stat"><span class="stat-num">11</span><span class="stat-label">participants, ages 15–45</span></div>
+          <div class="stat"><span class="stat-num">211 → 12</span><span class="stat-label">papers screened for the literature review</span></div>
+        </div>
+
+        <div class="tldr">
+          <span class="eyebrow">TL;DR</span>
+          <p>We measured people's skin conductance (a sweat-based signal of stress) while they did math and memory tasks, sometimes with a sudden alarm or clap mid-task. Thinking hard raised stress clearly, a surprise alarm raised it even more, and a simple machine learning model could tell "stressed" from "relaxed" with 91% accuracy using that signal alone.</p>
+        </div>
+
+        <h2>The question</h2>
+        <p>When you concentrate, your body reacts: your sympathetic nervous system kicks in and your skin conducts electricity slightly better as sweat glands activate. That signal is called <strong>Galvanic Skin Response (GSR)</strong>, and it's one of the most sensitive real-time measures of mental effort and stress.</p>
+        <p>Plenty of studies have used GSR to measure cognitive load in calm lab settings. But real life isn't calm. We reviewed the literature and found that <strong>none of the studies tested what happens when a sudden, loud distraction hits in the middle of a task</strong>. That's the gap this paper fills.</p>
+
+        <h2>How the study worked</h2>
+        <p>Eleven participants wore a finger-mounted GSR sensor and went through a 10-minute session that alternated between rest and timed tasks. In one version of each task, we introduced a sudden auditory distraction. Which attempt got the distraction was randomized per participant.</p>
+
+        <ol class="protocol" aria-label="Session protocol">
+          <li class="rest"><span class="p-time">2 min</span><span class="p-name">Rest</span></li>
+          <li class="task"><span class="p-time">1 min</span><span class="p-name">Math</span></li>
+          <li class="rest"><span class="p-time">2 min</span><span class="p-name">Rest</span></li>
+          <li class="task distract"><span class="p-time">1 min</span><span class="p-name">Math</span><span class="p-flag">Alarm at 30s</span></li>
+          <li class="rest"><span class="p-time">2 min</span><span class="p-name">Rest</span></li>
+          <li class="task"><span class="p-time">45 s</span><span class="p-name">Word recall</span></li>
+          <li class="rest"><span class="p-time">2 min</span><span class="p-name">Rest</span></li>
+          <li class="task distract"><span class="p-time">45 s</span><span class="p-name">Word recall</span><span class="p-flag">Claps at 20s &amp; 40s</span></li>
+        </ol>
+        <p class="legend"><span class="sw rest"></span>Rest / baseline <span class="sw task"></span>Task <span class="sw distract"></span>Task with distraction</p>
+
+        <figure class="figure">
+          <div class="fig-frame"><img src="../assets/img/research/gsr-sensor.jpg" alt="NeuLog galvanic skin response sensor with two finger electrodes" loading="lazy" style="max-width: 420px;"></div>
+          <figcaption><strong>The sensor.</strong> A GSR sensor with dry electrodes on two fingers of the non-dominant hand, sampled at 5 Hz and measured in microsiemens (µS).</figcaption>
+        </figure>
+
+        <h3>From raw signal to results</h3>
+        <ol class="steps">
+          <li><strong>Smooth</strong> the raw signal with a moving-average filter to remove noise.</li>
+          <li><strong>Segment</strong> it into labeled phases (each rest and each task).</li>
+          <li><strong>Extract features</strong> per phase: mean, peak, standard deviation, and area under the curve.</li>
+          <li><strong>Decompose</strong> the signal into a slow baseline (tonic) and fast reactions (phasic) using the neurokit2 library.</li>
+          <li><strong>Lock onto events</strong>: measure the size, rise time, and recovery of the spike after each distraction.</li>
+          <li><strong>Classify</strong> each phase as stress or rest with logistic regression.</li>
+        </ol>
+
+        <h2>What we found</h2>
+
+        <h3>1. Thinking hard raises stress, and it builds up</h3>
+        <p>GSR jumped at the start of every task, especially the math tasks. Even during rest, the baseline crept higher as the session went on, a sign that the body wasn't fully recovering between tasks.</p>
+        <figure class="figure wide">
+          <div class="fig-frame"><img src="../assets/img/research/gsr-timeseries.png" alt="Line chart of one participant's GSR over a 650-second session, colored by phase, rising sharply at each task" loading="lazy"></div>
+          <figcaption><strong>One participant's full session.</strong> Each color is a phase. Notice the sharp rise at each task and the climbing baseline across rests.</figcaption>
+        </figure>
+        <figure class="figure wide">
+          <div class="fig-frame"><img src="../assets/img/research/gsr-phase-means.png" alt="Bar chart of mean GSR per phase across all participants, with rest phases rising from about 2.7 to 4.7 microsiemens" loading="lazy"></div>
+          <figcaption><strong>Average GSR per phase across all 11 participants.</strong> Every task was significantly higher than the rest period before it.</figcaption>
+        </figure>
+
+        <h3>2. A sudden alarm makes it worse</h3>
+        <p>Comparing the two math tasks, mean GSR was significantly higher when an alarm went off mid-task (t = −4.06, <strong>p = 0.0023</strong>). The reaction was fast: GSR spiked within 1–3 seconds of the sound.</p>
+        <figure class="figure wide">
+          <div class="fig-frame"><img src="../assets/img/research/gsr-alarm.png" alt="GSR trace during the math task with the 10 seconds before and after the 30-second alarm shaded; GSR rises right after the alarm" loading="lazy"></div>
+          <figcaption><strong>Zooming in on the alarm.</strong> We compared the 10 seconds before (blue) and after (red) the alarm. Participants showed increases like +0.21 µS and +0.38 µS.</figcaption>
+        </figure>
+
+        <h3>3. Math is more stressful than memory recall</h3>
+        <p>Math tasks produced significantly higher GSR than word-recall tasks (t = −2.90, <strong>p = 0.016</strong>). Interestingly, the claps during word recall didn't produce a significant difference (p = 0.196), suggesting memory tasks may be more resilient to brief interruptions.</p>
+        <div class="fig-pair">
+          <figure class="figure">
+            <div class="fig-frame"><img src="../assets/img/research/gsr-math-box.png" alt="Box plot: Task1 Math versus Task2 Math with alarm, p = 0.0023" loading="lazy"></div>
+            <figcaption><strong>Math:</strong> no distraction vs. alarm.</figcaption>
+          </figure>
+          <figure class="figure">
+            <div class="fig-frame"><img src="../assets/img/research/gsr-word-box.png" alt="Box plot: Task3 Word versus Task4 Word with claps, not significant" loading="lazy"></div>
+            <figcaption><strong>Word recall:</strong> no distraction vs. claps (n.s.).</figcaption>
+          </figure>
+        </div>
+        <figure class="figure" style="max-width: 460px; margin-left: auto; margin-right: auto;">
+          <div class="fig-frame"><img src="../assets/img/research/gsr-math-vs-word.png" alt="Box plot: Math versus Word task GSR, p = 0.016" loading="lazy"></div>
+          <figcaption><strong>Math vs. word recall</strong> overall.</figcaption>
+        </figure>
+
+        <h3>4. A simple model can detect stress</h3>
+        <p>Using just five basic GSR features per phase, a logistic regression model classified stress vs. relaxation with <strong>91.3% accuracy</strong>. It misclassified only 2 of 23 phases, which shows lightweight models are enough for real-time stress monitoring.</p>
+        <div class="table-pair">
+          <div class="table-card">
+            <table class="data-table">
+              <caption>Model performance</caption>
+              <thead><tr><th>Metric</th><th>Relax</th><th>Stress</th><th>Average</th></tr></thead>
+              <tbody>
+                <tr><td>Precision</td><td>91.7%</td><td>90.9%</td><td>–</td></tr>
+                <tr><td>Recall</td><td>91.7%</td><td>90.9%</td><td>–</td></tr>
+                <tr><td>F1 score</td><td>91.7%</td><td>90.9%</td><td><strong>91.3%</strong></td></tr>
+                <tr><td>Accuracy</td><td>–</td><td>–</td><td><strong>91.3%</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-card">
+            <table class="data-table confusion">
+              <caption>Confusion matrix <span class="cap-note">Rows: actual · Columns: predicted</span></caption>
+              <thead><tr><th><span class="visually-hidden">Actual</span></th><th>Relax</th><th>Stress</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Relax</th><td class="ok">11</td><td class="err">1</td></tr>
+                <tr><th scope="row">Stress</th><td class="err">1</td><td class="ok">10</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h2>Why it matters</h2>
+        <ul class="why">
+          <li><strong>Adaptive software</strong> that eases off when a user is overloaded.</li>
+          <li><strong>Education tools</strong> that notice when a student is overwhelmed and adjust the pace.</li>
+          <li><strong>Safety-critical training</strong> (aviation, surgery, emergency response) that flags operators under excessive strain.</li>
+          <li><strong>Stress-management therapy</strong> for people with anxiety or attention disorders.</li>
+        </ul>
+
+        <h2>Limitations &amp; next steps</h2>
+        <p>With 11 participants the sample is small, and some recordings were incomplete in later phases, which limited the clap analysis. Math tasks always came before memory tasks, which may have introduced order effects. Next steps include larger and more diverse samples, automatic artifact correction, counterbalanced task order, and combining GSR with other signals like heart rate and pupil size.</p>
+
+        <details class="more-detail">
+          <summary>How we reviewed the existing research</summary>
+          <p>Following PRISMA guidelines, we searched SCOPUS and IEEE Xplore for studies using GSR to measure cognitive load. From 211 records, 12 studies met our criteria. They grouped into four themes: mental state, physiological data, task design, and detection accuracy. None introduced distractions during the tasks.</p>
+          <figure class="figure" style="max-width: 480px; margin-left: auto; margin-right: auto;">
+            <div class="fig-frame"><img src="../assets/img/research/gsr-prisma.jpg" alt="PRISMA flow diagram: 211 records screened, 20 full texts assessed, 12 studies included" loading="lazy"></div>
+            <figcaption>PRISMA diagram of the article selection process.</figcaption>
+          </figure>
+        </details>
+
+        <h2 id="cite">Cite this paper</h2>
+        <p class="meta" style="margin-bottom: 12px;">S. Clemente, L. Varghese, V. Nino, and M. Valero, "Sweating the Stress: GSR Insights into Cognitive Load and Distraction," in <em>Proc. IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)</em>, 2025, pp. 33–41. doi: <a href="https://doi.org/10.1109/ICCVW69036.2025.00009" target="_blank" rel="noopener">10.1109/ICCVW69036.2025.00009</a></p>
+        <div class="cite">@inproceedings{clemente2025sweating,
+  title     = {Sweating the Stress: GSR Insights into Cognitive Load and Distraction},
+  author    = {Clemente, Santiago and Varghese, Layla and Nino, Valentina and Valero, Maria},
+  booktitle = {2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)},
+  pages     = {33--41},
+  year      = {2025},
+  doi       = {10.1109/ICCVW69036.2025.00009}
+}</div>
+      </div>
+    </article>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/site.js?v=58"></script>
+</body>
+</html>

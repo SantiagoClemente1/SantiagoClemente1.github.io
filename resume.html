@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume | Santiago Clemente</title>
+  <meta name="description" content="Resume of Santiago Clemente.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=58">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body data-page="resume" data-root="">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <span class="eyebrow">Resume</span>
+        <h1>Resume</h1>
+        <div class="btn-row" style="justify-content:center; margin-top:20px;">
+          <a class="btn btn-primary" id="resume-download" href="assets/resume.pdf" download>Download PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 8px;">
+      <div class="container">
+        <!-- Drop your resume at assets/resume.pdf and it shows up here automatically. -->
+        <div id="resume-slot">
+          <div class="placeholder resume-frame">Resume PDF goes here<br>assets/resume.pdf</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/js/site.js?v=58"></script>
+  <script>
+    // Show the embedded PDF only once assets/resume.pdf exists.
+    fetch("assets/resume.pdf", { method: "HEAD" }).then(function (r) {
+      if (!r.ok) { document.getElementById("resume-download").style.display = "none"; return; }
+      document.getElementById("resume-slot").innerHTML =
+        '<iframe class="resume-frame" src="assets/resume.pdf" title="Santiago Clemente resume"></iframe>' +
+        '<p style="margin-top:12px;color:var(--muted);font-size:.9rem;">Not loading on your phone? <a href="assets/resume.pdf">Open the PDF directly</a>.</p>';
+    }).catch(function () {
+      document.getElementById("resume-download").style.display = "none";
+    });
+  </script>
+</body>
+</html>

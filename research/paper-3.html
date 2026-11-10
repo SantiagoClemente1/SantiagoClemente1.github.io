@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Digital Athlete | Santiago Clemente</title>
+  <meta name="description" content="The Digital Athlete: a systematic review of AI, wearable, and eye-tracking tools for athletic performance tracking. Unpublished manuscript by Santiago Clemente et al.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css?v=58">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body data-page="research" data-root="../">
+  <header id="site-header"></header>
+
+  <main>
+    <section class="paper-hero">
+      <div class="container narrow">
+        <a class="back" href="../research.html">← All research</a>
+
+        <span class="eyebrow">Systematic review · Manuscript, 2025</span>
+        <h1>The Digital Athlete: A Review of Performance Tracking Tools and Their Role in Sports Development</h1>
+        <p class="meta authors">
+          <strong>Santiago Clemente</strong>, Marilena Yeguez, Juan Velasco, Maria Valero, Valentina Nino<br>
+          <span>Wind Consulting LLC · Kennesaw State University</span>
+        </p>
+        <p class="status-row"><span class="status-pill">Not yet published</span></p>
+      </div>
+    </section>
+
+    <article class="article article-after-hero">
+      <div class="container narrow">
+        <div class="stats">
+          <div class="stat"><span class="stat-num">828 → 16</span><span class="stat-label">articles screened down to included studies</span></div>
+          <div class="stat"><span class="stat-num">2018–2025</span><span class="stat-label">publication window reviewed</span></div>
+          <div class="stat"><span class="stat-num">4</span><span class="stat-label">technology categories compared</span></div>
+          <div class="stat"><span class="stat-num">0</span><span class="stat-label">studies that tracked nutrition alongside performance</span></div>
+        </div>
+
+        <div class="tldr">
+          <span class="eyebrow">TL;DR</span>
+          <p>We reviewed the recent research on how AI, wearables, and eye-tracking are used to measure athletic performance, with a focus on soccer and youth athletes. These tools now capture both physical and mental performance, but no study we found combined them with nutrition data, which is a key missing piece for understanding how young athletes grow and recover.</p>
+        </div>
+
+        <h2>Why this review</h2>
+        <p>Sports tech has exploded: GPS vests, heart-rate straps, smart textiles, and AI video analysis now give coaches data that didn't exist a decade ago. Most reviews focus on the <strong>physical</strong> side (speed, load, injury risk). We wanted to know how well these tools also capture the <strong>cognitive</strong> side (decision-making, attention, mental fatigue), especially for <strong>youth and amateur athletes</strong>, and where the gaps are.</p>
+
+        <h2>How we did it</h2>
+        <p>We followed the PRISMA 2020 guidelines for systematic reviews and searched SCOPUS and IEEE Xplore for peer-reviewed, English-language studies from January 2018 to August 2025.</p>
+        <div class="search-box">
+          <span class="search-label">Search string</span>
+          <code>("soccer" AND "player" AND "performance" AND "tracking") AND ("technology" OR "AI" OR "machine learning" OR "wearable" OR "sensor" OR "eye-tracking")</code>
+        </div>
+        <p>Studies had to track physical or cognitive performance using AI, wearables, sensors, or eye-tracking, and report real data. Each included study was quality-checked with the Mixed Methods Appraisal Tool (MMAT).</p>
+        <figure class="figure" style="max-width: 440px; margin-left: auto; margin-right: auto;">
+          <div class="fig-frame"><img src="../assets/img/research/athlete-prisma.jpg" alt="PRISMA flow diagram: 828 records screened, 16 studies included" loading="lazy"></div>
+          <figcaption><strong>Study selection.</strong> From 828 records across two databases, 16 studies met all criteria.</figcaption>
+        </figure>
+
+        <h2>What we found</h2>
+        <p>The 16 studies fell into four groups.</p>
+        <div class="finding-grid">
+          <div class="finding">
+            <span class="finding-num">01</span>
+            <h3>AI &amp; machine learning</h3>
+            <p>Computer vision models (YOLO, deepSORT) detect players and the ball in game footage automatically. Other models predict injury risk from heart-rate and sprint data, or detect cognitive load from an athlete's speech.</p>
+          </div>
+          <div class="finding">
+            <span class="finding-num">02</span>
+            <h3>Wearables &amp; sensors</h3>
+            <p>GPS and heart-rate wearables quantify speed, acceleration, and training load. Newer work combines multiple sensors into a single performance index, or gives real-time resistance feedback to build sprint capacity.</p>
+          </div>
+          <div class="finding">
+            <span class="finding-num">03</span>
+            <h3>Youth &amp; amateur athletes</h3>
+            <p>Tools are being adapted for younger players: age-specific injury thresholds, readiness scores from GPS data, and eye-tracking to study how young players scan the field and make decisions.</p>
+          </div>
+          <div class="finding">
+            <span class="finding-num">04</span>
+            <h3>Eye-tracking &amp; attention</h3>
+            <p>The least explored area. Athletes show more target-focused gaze, and elite players track multiple moving objects better under pressure. Promising for coaching, but devices can be intrusive.</p>
+          </div>
+        </div>
+
+        <div class="table-card" style="margin: 28px 0;">
+          <table class="data-table text-table">
+            <caption>How machine learning is being applied</caption>
+            <thead><tr><th>Application</th><th>Approach</th><th>Reported result</th></tr></thead>
+            <tbody>
+              <tr><td>Player detection &amp; tracking</td><td>CNN detection in broadcast video (YOLO, deepSORT)</td><td>90% accuracy</td></tr>
+              <tr><td>Tactical analysis</td><td>RNN models estimating team formations</td><td>85% accuracy</td></tr>
+              <tr><td>Injury risk prediction</td><td>ML on training load + heart rate</td><td>Sensitivity 0.73, specificity 0.85</td></tr>
+              <tr><td>Fatigue &amp; readiness</td><td>GPS-based locomotor efficiency index</td><td>10% error (MAPE)</td></tr>
+              <tr><td>Cognitive load detection</td><td>Speech signal analysis</td><td>92.3% accuracy</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>The gap: nutrition</h2>
+        <p><strong>None of the 16 studies included dietary or metabolic data.</strong> That's a big blind spot, because nutrition drives recovery, energy balance, and growth, especially for young athletes. Only a few studies combined more than one domain (for example, AI with physiology, or eye-tracking with decision-making), and small sample sizes and inconsistent measures make results hard to compare.</p>
+
+        <h2>Where the field should go next</h2>
+        <ul class="why">
+          <li><strong>Add nutrition data</strong> to wearable and cognitive tracking for a full picture of performance and recovery.</li>
+          <li><strong>Build youth-specific models</strong> instead of reusing ones trained on adult athletes.</li>
+          <li><strong>Make devices work together</strong> so AI, wearable, and eye-tracking data can be combined in one place.</li>
+          <li><strong>Run long-term studies</strong> on how early tracking affects skill development, resilience, and injury risk over years.</li>
+        </ul>
+
+        <p class="todo" style="margin-top: 40px;">This manuscript hasn't been published yet. A link to the published version will be added here once it's available.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/site.js?v=58"></script>
+</body>
+</html>
